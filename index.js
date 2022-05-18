@@ -29,4 +29,26 @@ function calculate(str) {
     return answer;
   }
   
-  console.log(calculate("..... + ..............."));  
+  //console.log(calculate("..... + ..............."));  
+
+  function grid(number) {
+    if (number < 0) {
+      console.log(null);
+      return
+    }
+    const alphabet = "abcdefghijklmnopqrstuvwxyz";    
+    let num;
+    let string;
+    for (let j = 0; j < number; j++) {
+      string = alphabet[j];
+      num = j;
+      for(let i = 0; i < number - 1; i ++) {
+        num++;
+        if (num > 25) num = 0;
+        string = string + ' ' + alphabet[num] ;
+      }
+      console.log(string);
+    }       
+    return
+  }
+  grid(10);
