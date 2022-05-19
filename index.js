@@ -51,4 +51,17 @@ function calculate(str) {
     }       
     return
   }
-  grid(10);
+  //grid(10);
+
+  function isValidParentheses(string) {
+    let answer;
+    let stringArray = [];    
+    for (let i = 0; i < string.length; i++) {      
+      if (string[i] == ')') {
+        if (stringArray.slice(-1) == '(') stringArray.pop(); else stringArray.push(string[i]);
+      } else stringArray.push(string[i]);      
+    }    
+    if (stringArray.length == 0) answer = true; else answer = false;
+    return answer;
+}
+console.log(isValidParentheses(")(()))")) ;
