@@ -1,4 +1,4 @@
-function calculate(str) {
+const calc = function calculate(str) {
     strArray = str.split(" ");    
     let answer;    
     const firstNumber = strArray[0].length;
@@ -34,22 +34,28 @@ function calculate(str) {
   function grid(number) {
     if (number < 0) {
       console.log(null);
-      return
+      return [];
     }
     const alphabet = "abcdefghijklmnopqrstuvwxyz";    
+    let result = [];
     let num;
     let string;
     for (let j = 0; j < number; j++) {
+      let resultStr = [];
+      resultStr.push(alphabet[j]);
       string = alphabet[j];
       num = j;
       for(let i = 0; i < number - 1; i ++) {
         num++;
         if (num > 25) num = 0;
         string = string + ' ' + alphabet[num] ;
+        resultStr.push(alphabet[num]);
       }
-      console.log(string);
+      result.push(resultStr);
+      //console.log(resultStr);
     }       
-    return
+    console.log(result);
+    return result;
   }
   //grid(10);
 
@@ -57,11 +63,11 @@ function calculate(str) {
     let answer;
     let stringArray = [];    
     for (let i = 0; i < string.length; i++) {      
-      if (string[i] == ')') {
-        if (stringArray.slice(-1) == '(') stringArray.pop(); else stringArray.push(string[i]);
+      if (string[i] === ')') {
+        if (stringArray.slice(-1) === '(') stringArray.pop(); else stringArray.push(string[i]);
       } else stringArray.push(string[i]);      
     }    
-    if (stringArray.length == 0) answer = true; else answer = false;
+    if (stringArray.length === 0) answer = true; else answer = false;
     return answer;
 }
-console.log(isValidParentheses(")(()))")) ;
+//console.log(isValidParentheses(")(()))")) ;
